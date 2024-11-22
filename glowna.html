@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Ogólne style */
+        body {
+            background-color: #f3f4f9;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Wyśrodkowanie zawartości */
+            padding: 0 20px; /* Dodanie marginesu z lewej i prawej */
+        }
+
+        /* Górny pasek nawigacyjny z wyrównaniem ikony orel i dwonek */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px 0;
+            background-color: #f3f4f9;
+        }
+
+        .top-bar img {
+            width: 10vw;
+            max-width: 40px;
+        }
+
+        /* Sekcja Dokumentów */
+        .section-documents {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px 0; /* Dodanie marginesu góra-dół w sekcji dokumentów */
+            margin-bottom: 20px;
+        }
+
+        /* Styl dla tekstu sekcji */
+        .usługi {
+            font-size: 20px;
+            color: #2d2d94;
+            font-weight: bold;
+        }
+
+        /* Styl dla przycisków */
+        button {
+            border: 1px solid #f4f5fa;
+            border-radius: 15px;
+            background-color: white;
+            color: #2d2d94;
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(108, 181, 250, 0.274);
+        }
+
+        /* Przyciski Dodaj i Wszystkie w sekcji Dokumenty */
+        .buttons-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Sekcja Usług z przyciskiem po prawej */
+        .section-services {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px 0; /* Dodanie marginesu góra-dół w sekcji usług */
+            margin-bottom: 20px;
+        }
+
+        /* Styl obrazów ikon */
+        .ic {
+            width: 80px; /* Szerokość ikon */
+            height: 80px; /* Wysokość ikon */
+            margin: 15px;
+            border-radius: 15px; /* Zaokrąglone rogi */
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Dodanie delikatnego cienia */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodanie efektu transformacji */
+        }
+
+        /* Styl obrazów ikon przy najechaniu */
+        .ic:hover {
+            transform: scale(1.1); /* Powiększenie ikony */
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Zwiększenie cienia */
+        }
+
+        /* Wyśrodkowanie zdjęcia głównego */
+        .zdjecie {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            margin-top: -20px;
+            margin-bottom: -10px;
+        }
+
+        .zdjecie img {
+            width: 90%; /* Ustawienie szerokości na 90% kontenera */
+            max-width: 400px; /* Maksymalna szerokość obrazka */
+        }
+
+        /* Ikony usługi w dwóch rzędach po 3 */
+        /* Styl obrazów ikon */
+/* Styl obrazów ikon */
+.ic {
+    width: 80px; /* Szerokość ikon */
+    height: 80px; /* Wysokość ikon */
+    margin: 15px;
+    border-radius: 15px; /* Zaokrąglone rogi */
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodanie efektu transformacji */
+}
+
+/* Styl obrazów ikon przy najechaniu */
+.ic:hover {
+    transform: scale(1.1); /* Powiększenie ikony */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Zwiększenie cienia */
+}
+
+/* Ikony wyświetlane w dwóch rzędach po 3 z podpisami */
+.icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Rozmieszczenie ikon po środku */
+    gap: 20px;
+    margin-top: 20px; /* Dodanie marginesu górnego dla ikon */
+    max-width: 700px; /* Maksymalna szerokość kontenera */
+}
+
+/* Styl dla podpisu pod ikonami */
+.ic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkowanie podpisów */
+    text-align: center; /* Wyśrodkowanie podpisu */
+}
+
+.ic-container p {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #2d2d94;
+    font-weight: bold;
+}
+
+/* Dodatkowe style dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    .usługi {
+        font-size: 18px;
+    }
+
+    /* Ikony górnego paska na mniejszych ekranach */
+    .top-bar img, {
+        width: 8vw;
+        max-width: 35px;
+    }
+
+    .icons-container {
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .ic {
+        width: 60px; /* Zmniejszenie szerokości ikon na mniejszych ekranach */
+        height: 60px;
+        margin-left: 10px;
+        margin-top: -10px;
+        border:17px solid white;
+    }
+
+    .ic-container p {
+        font-size: 12px;
+    }
+}
+.pasek{
+    border: 1px solid rgb(143, 143, 143);
+}
+
+/* Dodatkowe style dla bardzo małych ekranów */
+@media (max-width: 480px) {
+    .usługi {
+        font-size: 16px;
+    }
+    button {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .top-bar img,  {
+        width: 12vw;
+        max-width: 30px;
+    }
+
+     .ic {
+        width: 50px; /* Dodatkowe zmniejszenie szerokości ikon */
+        height: 50px; 
+    }
+}
+
+
+        /* Dolny pasek nawigacyjny */
+        .navbarr{
+            width: 100%;
+        display: flex;
+        justify-content: space-around;
+        background-color: #f4f5fa;
+      
+       text-align: center;
+        position: fixed;
+        bottom: 0;
+        
+        
+        }
+        .navbar{
+            
+            text-align: center;
+            
+            
+        }
+.ic {
+    width: 12vw; /* Szerokość ikon w procentach, dostosowuje się do szerokości ekranu */
+    height: 12vw; /* Wysokość ikon, aby zachować proporcje */
+    margin: 2vw; /* Margines z każdej strony, zależny od szerokości ekranu */
+    border-radius: 15px; /* Zaokrąglone rogi */
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodanie efektu transformacji */
+}
+
+/* Styl obrazów ikon przy najechaniu */
+.ic:hover {
+    transform: scale(1.1); /* Powiększenie ikony */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Zwiększenie cienia */
+}
+
+/* Ikony wyświetlane w dwóch rzędach po 3 z podpisami */
+.icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Rozmieszczenie ikon po środku */
+    gap: 4vw; /* Odstęp między ikonami zależny od szerokości ekranu */
+    margin-top: 2vw; /* Górny margines zależny od szerokości ekranu */
+    max-width: 90vw; /* Maksymalna szerokość kontenera (90% szerokości ekranu) */
+}
+
+/* Styl dla podpisu pod ikonami */
+.ic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkowanie podpisów */
+    text-align: center; /* Wyśrodkowanie podpisu */
+}
+
+.ic-container p {
+    font-size: 14px;
+    margin-top: 1vw; /* Margines górny zależny od szerokości ekranu */
+    color: #2d2d94;
+    font-weight: bold;
+}
+
+/* Dodatkowe style dla małych ekranów */
+@media (max-width: 768px) {
+    .ic {
+        width: 15vw; /* Zwiększenie szerokości ikon na mniejszych ekranach */
+        height: 15vw; /* Zwiększenie wysokości ikon */
+        margin: 3vw; /* Zwiększenie marginesu dla lepszego rozstawienia */
+        margin-top: -10px;
+    }
+
+    .icons-container {
+        gap: 1vw; /* Zwiększenie odstępu między ikonami */
+        max-width: 100vw; /* Maksymalna szerokość kontenera */
+    }
+
+    .ic-container p {
+        font-size: 12px; /* Zmniejszenie rozmiaru tekstu */
+    }
+}
+
+/* Dodatkowe style dla bardzo małych ekranów */
+@media (max-width: 480px) {
+    .ic {
+        width: 25vw; /* Zwiększenie szerokości ikon na bardzo małych ekranach */
+        height: 25vw; /* Zwiększenie wysokości ikon */
+        margin: 4vw; /* Zwiększenie marginesu */
+    }
+
+    .ic-container p {
+        font-size: px; /* Zmniejszenie rozmiaru tekstu */
+    }
+}
+
+        /* Dodatkowe style dla bardzo małych ekranów */
+        @media (max-width: 480px) {
+            .usługi {
+                font-size: 16px;
+            }
+            button {
+                font-size: 14px;
+                padding: 4px 8px;
+                
+            }
+
+
+            .ic {
+                width: 50px; /* Dodatkowe zmniejszenie szerokości ikon */
+                height: 50px;
+                margin-top: -10px;
+                
+            }
+        }
+        @media (max-width: 400px) {
+            .ic {
+                width: 30px; /* Dodatkowe zmniejszenie szerokości ikon */
+                height: 30px;
+                margin-top: -10px;
+                
+            }
+        }
+    </style>
+ 
+
+    
+</head>
+<body>
+
+    <!-- Górny pasek nawigacyjny z ikonami orel i dwonek -->
+    <div class="top-bar">
+        <img class="orel" src="https://imgur.com/fdDIAuE.png" alt="Orel Ikona">
+        <img class="dwon" src="https://imgur.com/jtVKlq5.png" alt="Dwonek Ikona">
+    </div>
+
+    <!-- Sekcja "Dokumenty" z przyciskami po prawej stronie -->
+    <div class="section-documents">
+        <b class="usługi">Dokumenty</b>
+        <div class="buttons-group">
+            <button class="Dodaj">Dodaj</button>
+            <button class="wszytko">Wszystkie</button>
+        </div>
+    </div>
+
+    <!-- Obraz główny -->
+    <body>
+        <img id="mdowod" src="https://imgur.com/YwnyrAf.png" alt="Powrót na id.html" style="cursor: pointer; max-width: 324px; width: 100%; height: auto;">
+    
+        <script>
+            // Pobieranie parametrów z obecnego URL-a
+            const currentUrl = new URL(window.location.href);
+            const params = currentUrl.searchParams.toString();
+    
+            // Nasłuchiwanie kliknięcia na obrazek
+            document.getElementById("mdowod").addEventListener("click", () => {
+                // Tworzenie URL do powrotu na id.html z zachowaniem parametrów
+                const targetUrl = params ? `id.html?${params}` : "id.html";
+    
+                // Przekierowanie na id.html
+                window.location.href = targetUrl;
+            });
+        </script>
+    </body>
+    
+    
+
+    <!-- Sekcja "Usługi - Wszystkie" z wyrównaniem przycisku po prawej stronie -->
+    <div class="section-services">
+        <b class="usługi">Usługi</b>
+        <button class="wszytki">Wszystkie</button>
+    </div>
+
+    <!-- Ikony wyświetlane w dwóch rzędach po 3 z podpisami -->
+    <div class="icons-container">
+        <div class="ic-container">
+            <div class="ic">
+                <img src="https://imgur.com/Kel4jd4.png" alt="Ikona" />
+            </div>
+            <p>Bezpieczie <br>
+            w sieci</p>
+        </div>
+
+        <div class="ic-container">
+            <div class="ic">
+                <img src="https://imgur.com/ZrXABs4.png" alt="Ikona" />
+            </div>
+            <p>Alert<br>
+                powodziowy</p>
+        </div>
+
+        <div class="ic-container">
+            <div class="ic">
+                <img src="https://imgur.com/2lqHv6z.png" alt="Ikona" />
+            </div>
+            <p>Zastrzerz <br>
+                PESEL</p>
+        </div>
+</div>
+<div class="icons-container">
+        <div class="ic-container">
+            <div class="ic">
+                <img src="https://imgur.com/dF5SluO.png" alt="Ikona" />
+            </div>
+            <p>Firma</p>
+        </div>
+
+        <div class="ic-container">
+            <div class="ic">
+                <img src="https://imgur.com/sFibYxO.png" alt="Ikona" />
+            </div>
+            <p>Punkty karne</p>
+        </div>
+
+        <div class="ic-container">
+            <div class="ic">
+                <img src="https://imgur.com/00R3nlS.png" alt="Ikona" />
+            </div>
+            <p>Mandaty</p>
+        </div>
+    </div>
+    
+ 
+    <nav class="navbarr">
+        
+        <a href="#"><img class="ba" src="https://imgur.com/5qHq4CE.png" alt="sometext" style="width: 40px;" /></a>
+        <img class="ba" src="https://imgur.com/8kDmizA.png" alt="sometext" style="width: 65px;" />
+        <img class="ba" src="https://imgur.com/raommvF.png" alt="sometext" style="width: 50px;" />
+        <img class="ba" src="https://imgur.com/QQRscc4.png" alt="sometext" style="width: 50px;" />
+        <img class="ba" src="https://imgur.com/zEd3AgT.png" alt="sometext" style="width: 40px;" />
+    </nav>
+
+</body>
+</html>
+
+
