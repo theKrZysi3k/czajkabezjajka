@@ -11,7 +11,9 @@
 ::-webkit-scrollbar-thumb {
     display: none;
 }
-
+::backdrop {
+    background-color: #f5f6fb;
+}
 /**styling**/
 body{
     background-color: #f5f6fb;
