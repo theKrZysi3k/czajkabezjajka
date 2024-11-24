@@ -447,7 +447,38 @@
         <img class="ba" src="https://imgur.com/QQRscc4.png" alt="sometext" style="width: 50px;" />
         <img class="ba" src="https://imgur.com/zEd3AgT.png" alt="sometext" style="width: 40px;" />
     </nav>
+    <script>
+        // Funkcja do zmiany tła na biały
+        function setWhiteBackground() {
+            document.body.style.backgroundColor = 'white';
+        }
+    
+        // Dodanie zdarzenia kliknięcia, aby zmieniać tło na białe
+        document.addEventListener('click', () => {
+            setWhiteBackground();
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error(`Failed to enable fullscreen: ${err.message}`);
+                });
+            }
+        });
+        
+        function hideAddressBar() {
+        if (document.documentElement.scrollHeight < window.outerHeight / window.devicePixelRatio)
+        document.documentElement.style.height = (window.outerHeight / window.devicePixelRatio) + 'px';
+        setTimeout(window.scrollTo(1, 1), 0);
+    }
+        window.addEventListener("load", function () { hideAddressBar(); });
+        window.addEventListener("orientationchange", function () { hideAddressBar(); });
 
+        // Nasłuchiwanie zmiany trybu pełnoekranowego
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                setWhiteBackground();
+            }
+        });
+    </script>
+    
 </body>
 </html>
 
