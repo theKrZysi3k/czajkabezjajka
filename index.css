@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/**Styling**/
 .logo{
     width: 200px;
     margin-left: auto;
@@ -11,9 +10,9 @@
 }
 
 *{
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
 }
 
 p{
@@ -73,3 +72,28 @@ body{
 input:focus{
     outline: none;
 }
+
+.file-button {
+    display: block;
+    width: 55%; /* Dopasowanie do szerokości innych elementów */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Odstęp od pola daty */
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.file-button:hover {
+    background-color: #f0f0f0;
+    opacity: 0.8;
+}
+
